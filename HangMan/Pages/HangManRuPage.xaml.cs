@@ -56,7 +56,7 @@ namespace HangMan.Pages
         {
             ((Button)e.Source).IsEnabled = false;
 
-            char supposedLetter =  ((string)((Button)e.OriginalSource).Content)[0];
+            char supposedLetter =  ((string)((Button)e.OriginalSource).Content).Trim()[0];
             
             if (secretWord.Contains(supposedLetter) == true)
             {
