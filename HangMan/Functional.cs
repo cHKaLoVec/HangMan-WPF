@@ -139,5 +139,25 @@ namespace HangMan
                 return 1;
             return 0;
         }
+
+        public static string SetLetterInWord(char supposedLetter, string secretWord, string guessedWord)
+        {
+            string newWord = "";
+
+            for (int i = 0; i < secretWord.Length; i++)
+            {
+                if (supposedLetter == secretWord[i])
+                {
+                    newWord += supposedLetter;
+                }
+                else
+                {
+                    newWord += guessedWord[i];
+                }
+            }
+
+            guessedWord = newWord;
+            return guessedWord;
+        }
     }
 }

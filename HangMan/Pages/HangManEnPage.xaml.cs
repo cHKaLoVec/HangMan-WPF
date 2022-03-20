@@ -55,8 +55,22 @@ namespace HangMan.Pages
 
         private void btnLetter_Click(object sender, RoutedEventArgs e)
         {
-            checkLetterInWord(((string)((Button)e.OriginalSource).Content)[0]);
             ((Button)e.Source).IsEnabled = false;
+
+            char supposedLetter = ((string)((Button)e.OriginalSource).Content)[0];
+
+            if (secretWord.Contains(supposedLetter) == true)
+            {
+                guessedWord = Functional.SetLetterInWord(supposedLetter, secretWord, guessedWord);
+                txtWord.Text = guessedWord;
+            }
+            else
+            {
+                numberOfWrongs++;
+                changeImage(numberOfWrongs);
+            }
+
+            checkForVictory();
         }
 
         private void changeImage(int numberOfWrongs)
@@ -80,38 +94,6 @@ namespace HangMan.Pages
                 NavigationService.RemoveBackEntry();
                 disableLetterButtons();
             }
-        }
-
-        private void checkLetterInWord(char supposedLetter)
-        {
-            string newWord = "";
-
-            // Checking for a letter in the word
-            if (secretWord.Contains(supposedLetter) == true)
-            {
-
-                for (int i = 0; i < lenWord; i++)
-                {
-                    if (supposedLetter == secretWord[i])
-                    {
-                        newWord += supposedLetter;
-                    }
-                    else
-                    {
-                        newWord += guessedWord[i];
-                    }
-                }
-                guessedWord = newWord;
-                txtWord.Text = guessedWord;
-
-            }
-            else
-            {
-                numberOfWrongs++;
-                changeImage(numberOfWrongs);
-            }
-
-            checkForVictory();
         }
     }
 }

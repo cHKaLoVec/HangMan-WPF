@@ -19,7 +19,7 @@
         <RowDefinition Height="75"/>
         <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Name="menuImage" 
+        <Image x:Name="menuImage" 
                Grid.Row="0"
                Source="/Images/white_wrong_8.png"/>
         <TextBlock x:Name="txtVictory" 
@@ -53,16 +53,15 @@
                     Grid.Row="2"
                     Style="{StaticResource ControlButtonStyle}"
                     Content="≡"  
-                    FontWeight="Bold"
-                    ToolTip="menu" Click="btnGoMenu_Click"/>
+                    ToolTip="menu" 
+                    Click="btnGoMenu_Click"/>
             <Button x:Name="btnRestart"
                     Width="100"
                     Height="75"
                     Grid.Row="2"
                     Style="{StaticResource ControlButtonStyle}"
                     Content="↻"  
-                    FontWeight="Bold"
-                    ToolTip="restart" Click="btnRestart_Click"/>
+                    ToolTip="restart" Click="btnRestart_Click" Cursor="Hand"/>
         </StackPanel>
     </Grid>
 </Page>
