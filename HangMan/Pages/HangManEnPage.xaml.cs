@@ -70,7 +70,7 @@ namespace HangMan.Pages
                 changeImage(numberOfWrongs);
             }
 
-            checkForVictory();
+            openResultPage();
         }
 
         private void changeImage(int numberOfWrongs)
@@ -79,7 +79,7 @@ namespace HangMan.Pages
                 forImage.Source = new BitmapImage(new Uri(String.Format("pack://application:,,,/images/white_wrong_{0}.png", numberOfWrongs)));
         }
 
-        private void checkForVictory()
+        private void openResultPage()
         {
             if (Functional.IsVictory(numberOfWrongs, maxNumberOfWrongs, secretWord, guessedWord) == -1) // lose
             {
