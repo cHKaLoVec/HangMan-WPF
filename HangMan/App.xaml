@@ -1,0 +1,16 @@
+﻿<Application x:Class="HangMan.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HangMan"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/LetterButtonStyle.xaml"/>
+                <ResourceDictionary Source="Themes/ControlButtonStyle.xaml"/>
+                <ResourceDictionary Source="Themes/CloseButtonStyle.xaml"/>
+                <ResourceDictionary Source="Themes/CustomWordTextBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

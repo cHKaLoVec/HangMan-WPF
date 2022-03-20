@@ -1,0 +1,68 @@
+﻿<Page x:Class="HangMan.Pages.ResultPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HangMan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="500"
+      Title="" 
+      Foreground="White" FontSize="35"
+      FontFamily="Century Gothic">
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="300"/>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="25"/>
+        <RowDefinition Height="75"/>
+        <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Name="menuImage" 
+               Grid.Row="0"
+               Source="/Images/white_wrong_8.png"/>
+        <TextBlock x:Name="txtVictory" 
+                   Grid.Row="1" 
+                   Text="YOU WIN" 
+                   TextAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Bottom" 
+                   FontSize="45" FontWeight="Bold" Foreground="#FF5ED05E"/>
+        <TextBlock 
+                   Grid.Row="2" 
+                   Text="the word was" 
+                   TextAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Bottom" 
+                   FontSize="20"/>
+        <TextBlock x:Name="txtWord" 
+                   Grid.Row="3" 
+                   Text="HELLO" 
+                   TextAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   FontSize="35"/>
+        <StackPanel Grid.Row="5" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+            <Button x:Name="btnGoMenu"
+                    Width="100"
+                    Height="75"
+                    Grid.Row="2"
+                    Style="{StaticResource ControlButtonStyle}"
+                    Content="≡"  
+                    FontWeight="Bold"
+                    ToolTip="menu" Click="btnGoMenu_Click"/>
+            <Button x:Name="btnRestart"
+                    Width="100"
+                    Height="75"
+                    Grid.Row="2"
+                    Style="{StaticResource ControlButtonStyle}"
+                    Content="↻"  
+                    FontWeight="Bold"
+                    ToolTip="restart" Click="btnRestart_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

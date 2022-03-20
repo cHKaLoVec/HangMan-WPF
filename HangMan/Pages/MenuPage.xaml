@@ -1,0 +1,56 @@
+﻿<Page x:Class="HangMan.Pages.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HangMan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="500"
+      Title="" 
+      Foreground="White" FontSize="35" Loaded="Page_Loaded"
+      FontFamily="Century Gothic">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Name="menuImage" 
+               Grid.Row="0"/>
+        <TextBlock Grid.Row="1" 
+                       Text="PLAY" 
+                       TextAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Bottom"
+                   FontSize="50"
+                   FontWeight="Bold"/>
+        <Button x:Name="btnPlayRu"
+                    Width="300"
+                    Grid.Row="2"
+                    Style="{StaticResource ControlButtonStyle}"
+                    Content="russian"  
+                    FontWeight="Bold" 
+                Click="btnPlayRu_Click"/>
+        <Button x:Name="btnPlayEn"
+                    Width="300"
+                    Grid.Row="3"
+                    Style="{StaticResource ControlButtonStyle}"
+                    Content="english" 
+                    FontWeight="Bold"
+                Click="btnPlayEn_Click"/>
+        <Button x:Name="btnGameRules"
+                    Width="300"
+                    Grid.Row="5"
+                    Style="{StaticResource ControlButtonStyle}"
+                    Content="game rules" 
+                    FontWeight="Bold" Cursor="Hand"
+                    FontSize="20" Click="btnGameRules_Click"
+                Visibility="Hidden"/>
+    </Grid>
+</Page>
+
