@@ -25,7 +25,6 @@ namespace HangMan
         {
             myFrame.Navigate(new MenuPage());
             btnBack.Visibility = Visibility.Hidden;
-            btnRestart.Visibility = Visibility.Hidden;
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)

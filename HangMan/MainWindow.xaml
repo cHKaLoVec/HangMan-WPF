@@ -38,14 +38,6 @@
                         FontSize="20" 
                         Cursor="Hand" 
                         ToolTip="back" Click="btnBack_Click"/>
-                <Button x:Name="btnRestart" 
-                        Grid.Column="1" 
-                        Content="↻"
-                        Style="{StaticResource ControlButtonStyle}" 
-                        FontWeight="Bold"
-                        FontSize="25" 
-                        Cursor="Hand" 
-                        ToolTip="restart"/>
                 <Button Name="btnClose" 
                         Grid.Column="3" 
                         Content="×"
