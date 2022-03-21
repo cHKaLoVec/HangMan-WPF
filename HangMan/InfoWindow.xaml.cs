@@ -19,6 +19,14 @@ namespace HangMan
     /// </summary>
     public partial class InfoWindow : Window
     {
+        public InfoWindow(string header, string body, string color)
+        {
+            InitializeComponent();
+
+            txtHeader.Text = header;
+            txtBody.Text = body;
+            borderMain.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
+        }
         public InfoWindow(string header, string body)
         {
             InitializeComponent();

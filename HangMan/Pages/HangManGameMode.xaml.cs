@@ -38,7 +38,7 @@ namespace HangMan.Pages
             string customWord = txtBoxCustomWord.Text.Trim().ToUpper();
             if (!Functional.IsCorrectWord(gameLanguage, customWord))
             {
-                InfoWindow infoWindow = new InfoWindow("incorrect input", "");
+                InfoWindow infoWindow = new InfoWindow("incorrect input", "", "#DF2A36");
                 infoWindow.Show();
                 return;
             }

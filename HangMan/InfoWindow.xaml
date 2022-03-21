@@ -49,7 +49,7 @@
                             TextAlignment="Center" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 
-                            FontSize="40" 
+                            FontSize="30" 
                             FontWeight="Bold"
                             Margin="10" TextWrapping="WrapWithOverflow"/>
                 <TextBlock  x:Name="txtBody"
