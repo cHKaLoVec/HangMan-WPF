@@ -13,7 +13,7 @@ namespace HangMan
         {
             for (int i = 0; i < word.Length; i++)
             {
-                if (word[i] <= 'A' || word[i] >= 'Z')
+                if (word[i] <= 'A' && word[i] >= 'Z')
                 {
                     return false;
                 }
@@ -26,7 +26,7 @@ namespace HangMan
         {
             for (int i = 0; i < word.Length; i++)
             {
-                if (word[i] <= 'А' || word[i] >= 'Я')
+                if (word[i] <= 'А' && word[i] >= 'Я')
                 {
                     return false;
                 }

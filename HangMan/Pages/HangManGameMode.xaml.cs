@@ -40,6 +40,7 @@ namespace HangMan.Pages
             {
                 InfoWindow infoWindow = new InfoWindow("incorrect input", "", "#DF2A36");
                 infoWindow.Show();
+                MessageBox.Show(customWord);
                 return;
             }
 

@@ -36,7 +36,7 @@ namespace HangMan
         {
             for (int i = 0; i < SecretWord.Length; i++)
             {
-                if (SecretWord[i] <= 'A' || SecretWord[i] >= 'Z')
+                if (SecretWord[i] <= 'A' && SecretWord[i] >= 'Z')
                 {
                     return false;
                 }
@@ -49,7 +49,7 @@ namespace HangMan
         {
             for (int i = 0; i < SecretWord.Length; i++)
             {
-                if (SecretWord[i] <= 'А' || SecretWord[i] >= 'Я')
+                if (SecretWord[i] <= 'А' && SecretWord[i] >= 'Я')
                 {
                     return false;
                 }
