@@ -9,59 +9,51 @@
       Title="" 
       Foreground="White" FontSize="35"
       FontFamily="Century Gothic">
-    <Grid>
-        <Grid.RowDefinitions>
-        <RowDefinition Height="300"/>
-        <RowDefinition Height="50"/>
-        <RowDefinition Height="50"/>
-        <RowDefinition Height="50"/>
-        <RowDefinition Height="25"/>
-        <RowDefinition Height="75"/>
-        <RowDefinition/>
-        </Grid.RowDefinitions>
+    <StackPanel>
         <Image x:Name="menuImage" 
-               Grid.Row="0"
+               Height="300"
                Source="/Images/white_wrong_8.png"/>
+        
         <TextBlock x:Name="txtVictory" 
-                   Grid.Row="1" 
                    Text="YOU WIN" 
                    TextAlignment="Center" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Bottom" 
-                   FontSize="45" FontWeight="Bold" Foreground="#FF5ED05E"/>
-        <TextBlock 
-                   Grid.Row="2" 
-                   Text="the word was" 
+                   FontSize="45" FontWeight="Bold" Foreground="#FF5ED05E" Margin="0,5,0,0"/>
+        
+        <TextBlock Text="the word was" 
                    TextAlignment="Center" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Bottom" 
-                   FontSize="20"/>
+                   FontSize="20" Margin="0,20,0,0"/>
+        
         <TextBlock x:Name="txtWord" 
-                   Grid.Row="3" 
                    Text="HELLO" 
                    TextAlignment="Center" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Top" 
                    FontSize="35"/>
-        <StackPanel Grid.Row="5" 
-                    Orientation="Horizontal" 
+        
+        <StackPanel Orientation="Horizontal" 
                     HorizontalAlignment="Center" 
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Center" Margin="0,20,0,0">
+            
             <Button x:Name="btnGoMenu"
                     Width="100"
                     Height="75"
-                    Grid.Row="2"
                     Style="{StaticResource ControlButtonStyle}"
                     Content="≡"  
                     ToolTip="menu" 
                     Click="btnGoMenu_Click"/>
+            
             <Button x:Name="btnRestart"
                     Width="100"
                     Height="75"
-                    Grid.Row="2"
                     Style="{StaticResource ControlButtonStyle}"
                     Content="↻"  
                     ToolTip="restart" Click="btnRestart_Click" Cursor="Hand"/>
+        
         </StackPanel>
-    </Grid>
+    
+    </StackPanel>
 </Page>

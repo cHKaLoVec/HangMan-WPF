@@ -10,13 +10,11 @@ namespace HangMan.Pages
     /// </summary>
     public partial class HangManRuPage : Page
     {
-        private string secretWord = "";
-        private string guessedWord = "";
         private string wordListFileName = "Data\\list_of_words_ru.txt";
-        private int numberOfWrongs = 0;
-        private int maxNumberOfWrongs = 8;
-        private int lenWord;
-        private readonly string gameLanguage = "ru";
+
+        private static readonly string gameLanguage = "ru";
+
+        HangManGame game = new HangManGame(gameLanguage);
 
         private void disableLetterButtons(Grid grid)
         {
@@ -44,10 +42,14 @@ namespace HangMan.Pages
         {
             InitializeComponent();
 
-            secretWord = Functional.SetSecretWord(gameLanguage, customWord, wordListFileName);
-            lenWord = secretWord.Length;
-            guessedWord = Functional.Encrypt(lenWord);
-            txtWord.Text = guessedWord;
+            if (customWord != "")
+                game.SetCustomWord(customWord);
+            else
+                game.SetWord(wordListFileName);
+
+            game.EncryptWord();
+
+            txtWord.Text = game.GuessedWord;
 
             setButtonsClick(letterButtonGrid);
         }
@@ -56,17 +58,13 @@ namespace HangMan.Pages
         {
             ((Button)e.Source).IsEnabled = false;
 
-            char supposedLetter =  ((string)((Button)e.OriginalSource).Content).Trim()[0];
+            char suggestedLetter =  ((string)((Button)e.OriginalSource).Content).Trim()[0];
             
-            if (secretWord.Contains(supposedLetter) == true)
+            if(game.GetStatus() == Status.GameIsUnfinished)
             {
-                guessedWord = Functional.SetLetterInWord(supposedLetter, secretWord, guessedWord);
-                txtWord.Text = guessedWord;
-            }
-            else
-            {
-                numberOfWrongs++;
-                changeImage(numberOfWrongs);
+                game.SuggestLetter(suggestedLetter);
+                txtWord.Text=game.GuessedWord;
+                changeImage(game.NumberOfWrongs);
             }
 
             openResultPage();
@@ -74,22 +72,22 @@ namespace HangMan.Pages
 
         private void changeImage(int numberOfWrongs)
         {
-            if (numberOfWrongs <= maxNumberOfWrongs)
+            if (numberOfWrongs <= game.MaxNumberOfWrongs)
                 forImage.Source = new BitmapImage(new Uri(String.Format("pack://application:,,,/images/white_wrong_{0}.png", numberOfWrongs)));
         }
 
         private void openResultPage()
         {
-            if (Functional.IsVictory(numberOfWrongs, maxNumberOfWrongs, secretWord, guessedWord) == -1) // lose
+            if (game.GetStatus() == Status.Defeat) // defeat
             {
-                NavigationService.Navigate(new ResultPage(gameLanguage,false, secretWord));
+                NavigationService.Navigate(new ResultPage(gameLanguage, false, game.SecretWord));
                 NavigationService.RemoveBackEntry();
                 disableLetterButtons(letterButtonGrid);
             }
 
-            if (Functional.IsVictory(numberOfWrongs, maxNumberOfWrongs, secretWord, guessedWord) == 1) // win
+            if (game.GetStatus() == Status.Victory) // victory
             {
-                NavigationService.Navigate(new ResultPage(gameLanguage, true, secretWord));
+                NavigationService.Navigate(new ResultPage(gameLanguage, true, game.SecretWord));
                 NavigationService.RemoveBackEntry();
                 disableLetterButtons(letterButtonGrid);
             }
