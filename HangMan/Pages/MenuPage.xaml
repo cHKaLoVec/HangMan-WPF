@@ -10,47 +10,46 @@
       Foreground="White" FontSize="35" Loaded="Page_Loaded"
       FontFamily="Century Gothic">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="75"/>
-            <RowDefinition Height="75"/>
-            <RowDefinition Height="75"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="75"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Image Name="menuImage" 
-               Grid.Row="0"/>
-        <TextBlock Grid.Row="1" 
-                       Text="PLAY" 
-                       TextAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Bottom"
+    <StackPanel HorizontalAlignment="Center" 
+                VerticalAlignment="Top">
+        
+        <Image Name="menuImage"
+               Source="/Images/white_wrong_8.png"
+               Height="300"/>
+        
+        <TextBlock Text="PLAY" 
+                   TextAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Bottom"
                    FontSize="50"
-                   FontWeight="Bold"/>
+                   FontWeight="Bold" Margin="0,30,0,0"/>
+        
         <Button x:Name="btnPlayRu"
+                    Height="75"
                     Width="300"
-                    Grid.Row="2"
                     Style="{StaticResource ControlButtonStyle}"
                     Content="russian"  
                     FontWeight="Bold" 
-                Click="btnPlayRu_Click"/>
+                    Click="btnPlayRu_Click"/>
+        
         <Button x:Name="btnPlayEn"
+                    Height="75"
                     Width="300"
-                    Grid.Row="3"
                     Style="{StaticResource ControlButtonStyle}"
                     Content="english" 
                     FontWeight="Bold"
-                Click="btnPlayEn_Click"/>
+                    Click="btnPlayEn_Click"/>
+        
         <Button x:Name="btnGameRules"
                     Width="300"
-                    Grid.Row="5"
+                Height="0"
                     Style="{StaticResource ControlButtonStyle}"
                     Content="game rules" 
                     FontWeight="Bold" Cursor="Hand"
                     FontSize="20" Click="btnGameRules_Click"
                 Visibility="Hidden"/>
-    </Grid>
+        
+    </StackPanel>
+    
 </Page>
 
