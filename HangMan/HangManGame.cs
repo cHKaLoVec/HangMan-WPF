@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace HangMan
 {
@@ -32,30 +29,16 @@ namespace HangMan
             GuessedWord = new string('-', SecretWord.Length);
         }
 
-
-        public bool IsWordOfLettersInBetween(char firstChar, char lastChar)
-        {
-            for (int i = 0; i < SecretWord.Length; i++)
-            {
-                if (SecretWord[i] < firstChar && SecretWord[i] > lastChar)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         public bool IsCorrectWord()
         {
 
             if (string.IsNullOrEmpty(SecretWord))
                 return false;
 
-            if (GameLanguage == "en" && IsWordOfLettersInBetween('A', 'Z'))
+            if (GameLanguage == "en" && Regex.IsMatch(SecretWord, "^[A-Z]+$"))
                 return true;
 
-            if (GameLanguage == "ru" && IsWordOfLettersInBetween('А', 'Я'))
+            if (GameLanguage == "ru" && Regex.IsMatch(SecretWord, "^[А-Я]+$"))
                 return true;
 
             return false;
@@ -63,7 +46,7 @@ namespace HangMan
 
         public void SetCustomWord(string customWord)
         {
-            SecretWord = customWord.ToUpper();
+            SecretWord = customWord.Trim().ToUpper();
         }
 
         public void SetWordFromFile(string wordListFileName)
