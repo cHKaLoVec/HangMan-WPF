@@ -1,0 +1,186 @@
+﻿<Page x:Class="HangMan.Pages.GameEnPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HangMan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="500"
+      Title="HangManRuPage"
+      FontFamily="Century Gothic">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Image x:Name="forImage"
+                   Grid.Row="0"
+                   Source="/Images/white_wrong_0.png" />
+        <TextBox x:Name="txtWord" 
+                     Grid.Row="1" 
+                     Text="----" Foreground="White" 
+                     TextAlignment="Center" 
+                     FontSize="35" 
+                     FontFamily="Century Gothic" 
+                     Background="{x:Null}" 
+                     SelectionBrush="#FF9020DF" 
+                     MaxLines="1" 
+                     BorderThickness="0,0,0,0" Focusable="False" 
+                     />
+        <Grid Grid.Row="3" x:Name="letterButtonGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btn1" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Content="A"/>
+            <Button x:Name="btn2" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Content="B"/>
+            <Button x:Name="btn3" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Content="C"/>
+            <Button x:Name="btn4" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Content="D"/>
+            <Button x:Name="btn5" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Content="E"/>
+            <Button x:Name="btn6" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="0"
+                        Grid.Column="5"
+                        Content="F"/>
+            <Button x:Name="btn7" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="0"
+                        Grid.Column="6"
+                        Content="G"/>
+
+            <Button x:Name="btn8" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Content="H"/>
+            <Button x:Name="btn9" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Content="I"/>
+            <Button x:Name="btn10" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Content="J"/>
+            <Button x:Name="btn11" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Content="K"/>
+            <Button x:Name="btn12" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Content="L"/>
+            <Button x:Name="btn13" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="1"
+                        Grid.Column="5"
+                        Content="M"/>
+            <Button x:Name="btn14" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="1"
+                        Grid.Column="6"
+                        Content="N"/>
+
+            <Button x:Name="btn15" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Content="O"/>
+            <Button x:Name="btn16" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Content="P"/>
+            <Button x:Name="btn17" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Content="Q"/>
+            <Button x:Name="btn18" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        Content="R"/>
+            <Button x:Name="btn19" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Content="S"/>
+            <Button x:Name="btn20" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="2"
+                        Grid.Column="5"
+                        Content="T"/>
+            <Button x:Name="btn21" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="2"
+                        Grid.Column="6"
+                        Content="U"/>
+
+            <Button x:Name="btn22" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Content="V"/>
+            <Button x:Name="btn23" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        Content="W"/>
+            <Button x:Name="btn24" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="3"
+                        Grid.Column="3"
+                        Content="X"/>
+            <Button x:Name="btn25" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="3"
+                        Grid.Column="4"
+                        Content="Y"/>
+            <Button x:Name="btn26" 
+                        Style="{StaticResource LetterButtonStyle}"
+                        Grid.Row="3"
+                        Grid.Column="5"
+                        Content="Z"/>
+
+
+        </Grid>
+    </Grid>
+</Page>

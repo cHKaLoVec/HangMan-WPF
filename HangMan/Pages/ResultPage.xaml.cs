@@ -40,7 +40,7 @@ namespace HangMan.Pages
 
         private void btnRestart_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new HangManGameMode(gameLanguage));
+            NavigationService.Navigate(new GameModePage(gameLanguage));
             NavigationService.RemoveBackEntry();
         }
     }

@@ -32,24 +32,12 @@ namespace HangMan
             GuessedWord = new string('-', SecretWord.Length);
         }
 
-        public bool IsEnglishWord()
+
+        public bool IsWordOfLettersInBetween(char firstChar, char lastChar)
         {
             for (int i = 0; i < SecretWord.Length; i++)
             {
-                if (SecretWord[i] <= 'A' && SecretWord[i] >= 'Z')
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        public bool IsRussianWord()
-        {
-            for (int i = 0; i < SecretWord.Length; i++)
-            {
-                if (SecretWord[i] <= 'А' && SecretWord[i] >= 'Я')
+                if (SecretWord[i] < firstChar && SecretWord[i] > lastChar)
                 {
                     return false;
                 }
@@ -64,10 +52,10 @@ namespace HangMan
             if (string.IsNullOrEmpty(SecretWord))
                 return false;
 
-            if (GameLanguage == "en" && IsEnglishWord())
+            if (GameLanguage == "en" && IsWordOfLettersInBetween('A', 'Z'))
                 return true;
 
-            if (GameLanguage == "ru" && IsRussianWord())
+            if (GameLanguage == "ru" && IsWordOfLettersInBetween('А', 'Я'))
                 return true;
 
             return false;
@@ -78,61 +66,44 @@ namespace HangMan
             SecretWord = customWord.ToUpper();
         }
 
-        public void SetWord(string wordListFileName)
+        public void SetWordFromFile(string wordListFileName)
         {
-            string[] words;
+            string[] words = new string[] { };
 
-            if (GameLanguage == "ru")
+            switch (GameLanguage)
             {
-                if (File.Exists(wordListFileName))
-                {
-                    words = File.ReadAllLines(wordListFileName);
-                }
-                else
-                {
-                    words = new string[] { "имя", "область", "статья", "число", "компания", "народ", "жена", "группа", "развитие", "процесс", "суд" };
-                }
+                case "ru":
+                    words = new string[]
+                    {
+                        "имя", "область", "статья", "число", "компания", "народ",
+                        "жена", "группа", "развитие", "процесс", "суд"
+                    };
+                    break;
 
-                int n = words.Length;
-                Random rand = new Random();
-
-                while (true)
-                {
-                    SecretWord = words[rand.Next(0, n - 1)].ToUpper();
-                    if (IsCorrectWord())
-                        break;
-                }
-
-            }
-
-            if (GameLanguage == "en")
-            {
-                if (File.Exists(wordListFileName))
-                {
-                    words = File.ReadAllLines(wordListFileName);
-                }
-                else
-                {
+                case "en":
                     words = new string[]
                     {
                         "aspect", "attitude", "director", "personality", "psychology", "recommendation", "response",
                         "selection", "storage", "version", "alcohol", "argument", "complaint", "contract", "emphasis",
-                        "highway", "loss", "membership", "possession", "preparati"
+                        "highway", "loss", "membership", "possession"
                     };
-                }
+                    break;
+            }
 
-                int n = words.Length;
-                Random rand = new Random();
+            if (File.Exists(wordListFileName))
+            {
+                words = File.ReadAllLines(wordListFileName);
+            }
 
-                while (true)
-                {
-                    SecretWord = words[rand.Next(0, n - 1)].ToUpper();
-                    if (IsCorrectWord())
-                        break;
-                }
+            Random rand = new Random();
+
+            while (true)
+            {
+                SecretWord = words[rand.Next(0, words.Length - 1)].ToUpper();
+                if (IsCorrectWord())
+                    break;
             }
         }
-
 
         public void SuggestLetter(char suggestedLetter)
         {
@@ -143,13 +114,9 @@ namespace HangMan
                 for (int i = 0; i < SecretWord.Length; i++)
                 {
                     if (suggestedLetter == SecretWord[i])
-                    {
                         newWord += suggestedLetter;
-                    }
                     else
-                    {
                         newWord += GuessedWord[i];
-                    }
                 }
 
                 GuessedWord = newWord;
@@ -164,8 +131,10 @@ namespace HangMan
         {
             if (NumberOfWrongs == MaxNumberOfWrongs) // defeat
                 return Status.Defeat;
+
             if (GuessedWord == SecretWord) // victory
                 return Status.Victory;
+
             return Status.GameIsUnfinished;
         }
     }

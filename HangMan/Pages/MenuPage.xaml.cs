@@ -23,13 +23,13 @@ namespace HangMan.Pages
 
         private void btnPlayRu_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new HangManGameMode("ru"));
+            NavigationService.Navigate(new GameModePage("ru"));
             NavigationService.RemoveBackEntry();
         }
 
         private void btnPlayEn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new HangManGameMode("en"));
+            NavigationService.Navigate(new GameModePage("en"));
             NavigationService.RemoveBackEntry();
         }
 
