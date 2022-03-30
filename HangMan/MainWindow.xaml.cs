@@ -41,7 +41,11 @@ namespace HangMan
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            openMenuPage();
+            if (myFrame.CanGoBack == true)
+            {
+                myFrame.GoBack();
+                myFrame.NavigationService.RemoveBackEntry();
+            }
         }
 
         public void HideBackButton()

@@ -64,7 +64,7 @@ namespace HangMan
             SecretWord = customWord.Trim().ToUpper();
         }
 
-        public void SetWordFromFile(string wordListFileName)
+        public void SetWordFromReserve()
         {
             string[] words = new string[] { };
 
@@ -88,10 +88,22 @@ namespace HangMan
                     break;
             }
 
-            if (File.Exists(wordListFileName))
+            Random rand = new Random();
+
+            SecretWord = words[rand.Next(0, words.Length - 1)].ToUpper();
+        }
+
+        public void SetWordFromFile(string wordListFileName)
+        {
+            string[] words = new string[] { };
+
+            if (!File.Exists(wordListFileName))
             {
-                words = File.ReadAllLines(wordListFileName);
+                SetWordFromReserve();
+                return;
             }
+
+            words = File.ReadAllLines(wordListFileName);
 
             Random rand = new Random();
 

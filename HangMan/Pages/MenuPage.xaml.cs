@@ -24,19 +24,16 @@ namespace HangMan.Pages
         private void btnPlayRu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new GameModePage("ru"));
-            NavigationService.RemoveBackEntry();
         }
 
         private void btnPlayEn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new GameModePage("en"));
-            NavigationService.RemoveBackEntry();
         }
 
         private void btnGameRules_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ResultPage("en", true, "hello"));
-            NavigationService.RemoveBackEntry();
         }
     }
 }

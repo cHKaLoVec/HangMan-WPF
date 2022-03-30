@@ -58,7 +58,7 @@ namespace HangMan.Pages
         {
             ((Button)e.Source).IsEnabled = false;
 
-            char suggestedLetter =  ((string)((Button)e.OriginalSource).Content).Trim()[0];
+            char suggestedLetter =  ((string)((Button)e.OriginalSource).Content).Trim().ToUpper()[0];
             
             if(game.GetStatus() == Status.GameIsUnfinished)
             {
@@ -81,14 +81,12 @@ namespace HangMan.Pages
             if (game.GetStatus() == Status.Defeat) // defeat
             {
                 NavigationService.Navigate(new ResultPage(gameLanguage, false, game.SecretWord));
-                NavigationService.RemoveBackEntry();
                 disableLetterButtons(letterButtonGrid);
             }
 
             if (game.GetStatus() == Status.Victory) // victory
             {
                 NavigationService.Navigate(new ResultPage(gameLanguage, true, game.SecretWord));
-                NavigationService.RemoveBackEntry();
                 disableLetterButtons(letterButtonGrid);
             }
         }

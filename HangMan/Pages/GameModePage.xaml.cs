@@ -23,11 +23,9 @@ namespace HangMan.Pages
             {
                 case "en":
                     NavigationService.Navigate(new GameEnPage(word));
-                    NavigationService.RemoveBackEntry();
                     break;
                 case "ru":
                     NavigationService.Navigate(new GameRuPage(word));
-                    NavigationService.RemoveBackEntry();
                     break;
             }
         }
