@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using HangMan.Pages;
 
@@ -24,7 +22,7 @@ namespace HangMan
         private void openMenuPage()
         {
             myFrame.Navigate(new MenuPage());
-            btnBack.Visibility = Visibility.Hidden;
+            HideBackButton();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -46,9 +44,19 @@ namespace HangMan
             openMenuPage();
         }
 
-        private void myFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        public void HideBackButton()
+        {
+            btnBack.Visibility = Visibility.Hidden;
+        }
+
+        public void UnhideBackButton()
         {
             btnBack.Visibility = Visibility.Visible;
+        }
+
+        private void myFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            UnhideBackButton();
         }
     }
 }

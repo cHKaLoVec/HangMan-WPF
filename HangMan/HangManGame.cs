@@ -44,6 +44,21 @@ namespace HangMan
             return false;
         }
 
+        public static bool IsCorrectWord(string gameLanguage, string secretWord)
+        {
+
+            if (string.IsNullOrEmpty(secretWord))
+                return false;
+
+            if (gameLanguage == "en" && Regex.IsMatch(secretWord, "^[A-Z]+$"))
+                return true;
+
+            if (gameLanguage == "ru" && Regex.IsMatch(secretWord, "^[А-Я]+$"))
+                return true;
+
+            return false;
+        }
+
         public void SetCustomWord(string customWord)
         {
             SecretWord = customWord.Trim().ToUpper();

@@ -14,7 +14,7 @@
         WindowStartupLocation="CenterScreen" 
         AllowsTransparency="True" 
         FontFamily="Century Gothic" 
-        ResizeMode="NoResize" Icon="/icoHangMan.png" >
+        ResizeMode="NoResize" Icon="/Images/yellow-black-hangman-icon.png" >
     <Border Background="#FF141414" 
             CornerRadius="15,15,15,15" >
         <Grid>

@@ -10,7 +10,7 @@
       Foreground="White" FontSize="35"
       FontFamily="Century Gothic">
     <StackPanel>
-        <Image x:Name="menuImage" 
+        <Image x:Name="myImage" 
                Height="300"
                Source="/Images/white_wrong_8.png"/>
         

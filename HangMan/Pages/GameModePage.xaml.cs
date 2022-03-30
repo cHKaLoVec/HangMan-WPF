@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
@@ -36,13 +35,11 @@ namespace HangMan.Pages
         private void btnPlayCustomWordMode_Click(object sender, RoutedEventArgs e)
         {
             string customWord = txtBoxCustomWord.Text.Trim().ToUpper();
-            HangManGame game = new HangManGame(gameLanguage);
-            game.SetCustomWord(customWord);
-            if (!game.IsCorrectWord())
+            
+            if (!HangManGame.IsCorrectWord(gameLanguage, customWord))
             {
                 InfoWindow infoWindow = new InfoWindow("incorrect input", "", "#DF2A36");
                 infoWindow.Show();
-                MessageBox.Show(customWord);
                 return;
             }
 

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
 namespace HangMan.Pages
@@ -22,11 +23,13 @@ namespace HangMan.Pages
             {
                 txtVictory.Text = "YOU WIN";
                 txtVictory.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#5ED05E"));
+                myImage.Source = new BitmapImage(new Uri("pack://application:,,,/images/white_victory.png"));
             }
             else
             {
                 txtVictory.Text = "YOU LOSE";
                 txtVictory.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#DF2A36"));
+                myImage.Source = new BitmapImage(new Uri("pack://application:,,,/images/white_wrong_8.png"));
             } 
 
             txtWord.Text = word;
