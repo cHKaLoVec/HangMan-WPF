@@ -43,8 +43,13 @@ namespace HangMan
         {
             if (myFrame.CanGoBack == true)
             {
+                UnhideBackButton();
                 myFrame.GoBack();
                 myFrame.NavigationService.RemoveBackEntry();
+            }
+            if (!myFrame.CanGoBack)
+            {
+                HideBackButton();
             }
         }
 
