@@ -50,7 +50,7 @@
             <Frame x:Name="myFrame" 
                    Grid.Row="1"
                    NavigationUIVisibility="Hidden" 
-                   Navigating="myFrame_Navigating"/>
+                   LoadCompleted="myFrame_LoadCompleted"/>
         </Grid>
     </Border>
 </Window>
