@@ -107,12 +107,11 @@ namespace HangMan
 
             Random rand = new Random();
 
-            while (true)
-            {
-                SecretWord = words[rand.Next(0, words.Length - 1)].ToUpper();
-                if (IsCorrectWord())
-                    break;
-            }
+            SecretWord = words[rand.Next(0, words.Length - 1)].ToUpper();
+
+            if (!IsCorrectWord())
+                SetWordFromFile(wordListFileName);
+
         }
 
         public void SuggestLetter(char suggestedLetter)

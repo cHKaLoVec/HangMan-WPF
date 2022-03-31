@@ -59,7 +59,8 @@ namespace HangMan
         {
             if(myFrame.CanGoBack)
                 UnhideBackButton();
-            else
+
+            if(!myFrame.CanGoBack)
                 HideBackButton();
         }
     }
