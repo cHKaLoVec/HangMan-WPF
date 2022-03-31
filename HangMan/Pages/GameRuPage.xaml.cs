@@ -41,12 +41,25 @@ namespace HangMan.Pages
         public GameRuPage(string customWord)
         {
             InitializeComponent();
+            
+            game.SetCustomWord(customWord);
 
-            if (customWord != "")
-                game.SetCustomWord(customWord);
-            else
-                game.SetWordFromFile(wordListFileName);
+            game.EncryptWord();
 
+            StartGame();
+        }
+
+        public GameRuPage()
+        {
+            InitializeComponent();
+            
+            game.SetWordFromFile(wordListFileName);
+
+            StartGame();
+        }
+
+        private void StartGame()
+        {
             game.EncryptWord();
 
             txtWord.Text = game.GuessedWord;

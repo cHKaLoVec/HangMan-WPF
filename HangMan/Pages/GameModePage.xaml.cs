@@ -30,6 +30,19 @@ namespace HangMan.Pages
             }
         }
 
+        private void openGamePage(string language)
+        {
+            switch (language)
+            {
+                case "en":
+                    NavigationService.Navigate(new GameEnPage());
+                    break;
+                case "ru":
+                    NavigationService.Navigate(new GameRuPage());
+                    break;
+            }
+        }
+
         private void btnPlayCustomWordMode_Click(object sender, RoutedEventArgs e)
         {
             string customWord = txtBoxCustomWord.Text.Trim().ToUpper();
@@ -46,7 +59,7 @@ namespace HangMan.Pages
 
         private void btnPlayClassicMode_Click(object sender, RoutedEventArgs e)
         {
-            openGamePage(gameLanguage, "");
+            openGamePage(gameLanguage);
         }
     }
 }

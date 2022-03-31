@@ -20,12 +20,25 @@ namespace HangMan.Pages
         public GameEnPage(string customWord)
         {
             InitializeComponent();
+            
+            game.SetCustomWord(customWord);
 
-            if (customWord != "")
-                game.SetCustomWord(customWord);
-            else
-                game.SetWordFromFile(wordListFileName);
+            txtWord.Text = game.GuessedWord;
 
+            StartGame();
+        }
+
+        public GameEnPage()
+        {
+            InitializeComponent();
+
+            game.SetWordFromFile(wordListFileName);
+
+            StartGame();
+        }
+
+        private void StartGame()
+        {
             game.EncryptWord();
 
             txtWord.Text = game.GuessedWord;

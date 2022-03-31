@@ -41,16 +41,8 @@ namespace HangMan
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            if (myFrame.CanGoBack == true)
-            {
-                UnhideBackButton();
-                myFrame.GoBack();
-                myFrame.NavigationService.RemoveBackEntry();
-            }
-            if (!myFrame.CanGoBack)
-            {
-                HideBackButton();
-            }
+            UnhideBackButton();
+            myFrame.GoBack();
         }
 
         public void HideBackButton()
@@ -65,7 +57,10 @@ namespace HangMan
 
         private void myFrame_Navigating(object sender, NavigatingCancelEventArgs e)
         {
-            UnhideBackButton();
+            if(myFrame.CanGoBack)
+                UnhideBackButton();
+            else
+                HideBackButton();
         }
     }
 }

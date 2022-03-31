@@ -30,10 +30,5 @@ namespace HangMan.Pages
         {
             NavigationService.Navigate(new GameModePage("en"));
         }
-
-        private void btnGameRules_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ResultPage("en", true, "hello"));
-        }
     }
 }

@@ -46,7 +46,7 @@
                     Style="{StaticResource ControlButtonStyle}"
                     Content="game rules" 
                     FontWeight="Bold" Cursor="Hand"
-                    FontSize="20" Click="btnGameRules_Click"
+                    FontSize="20"
                 Visibility="Hidden"/>
         
     </StackPanel>
