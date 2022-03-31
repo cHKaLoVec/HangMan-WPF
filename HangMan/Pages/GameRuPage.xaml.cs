@@ -10,11 +10,38 @@ namespace HangMan.Pages
     /// </summary>
     public partial class GameRuPage : Page
     {
-        private string wordListFileName = "Data\\list_of_words_ru.txt";
+        private string _wordListFileName = "Data\\list_of_words_ru.txt";
 
         private static readonly string gameLanguage = "ru";
 
         HangManGame game = new HangManGame(gameLanguage);
+
+        public GameRuPage(string customWord)
+        {
+            InitializeComponent();
+            
+            game.SetCustomWord(customWord);
+
+            StartGame();
+        }
+
+        public GameRuPage()
+        {
+            InitializeComponent();
+            
+            game.SetWordFromFile(_wordListFileName);
+
+            StartGame();
+        }
+
+        private void StartGame()
+        {
+            game.EncryptWord();
+
+            txtWord.Text = game.GuessedWord;
+
+            setButtonsClick(letterButtonGrid);
+        }
 
         private void disableLetterButtons(Grid grid)
         {
@@ -36,35 +63,6 @@ namespace HangMan.Pages
                     ((Button)element).Click += btnLetter_Click;
                 }
             }
-        }
-
-        public GameRuPage(string customWord)
-        {
-            InitializeComponent();
-            
-            game.SetCustomWord(customWord);
-
-            game.EncryptWord();
-
-            StartGame();
-        }
-
-        public GameRuPage()
-        {
-            InitializeComponent();
-            
-            game.SetWordFromFile(wordListFileName);
-
-            StartGame();
-        }
-
-        private void StartGame()
-        {
-            game.EncryptWord();
-
-            txtWord.Text = game.GuessedWord;
-
-            setButtonsClick(letterButtonGrid);
         }
 
         private void btnLetter_Click(object sender, RoutedEventArgs e)

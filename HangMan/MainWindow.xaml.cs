@@ -44,12 +44,12 @@ namespace HangMan
             myFrame.GoBack();
         }
 
-        public void HideBackButton()
+        private void HideBackButton()
         {
             btnBack.Visibility = Visibility.Hidden;
         }
 
-        public void UnhideBackButton()
+        private void UnhideBackButton()
         {
             btnBack.Visibility = Visibility.Visible;
         }
