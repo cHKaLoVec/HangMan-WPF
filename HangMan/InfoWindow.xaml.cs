@@ -35,6 +35,14 @@ namespace HangMan
             txtBody.Text = body;
         }
 
+        public InfoWindow(string header)
+        {
+            InitializeComponent();
+
+            txtHeader.Text = header;
+            txtBody.Text = null;
+        }
+
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
