@@ -81,8 +81,10 @@ namespace HangMan.Pages
                 txtWord.Text = game.GuessedWord;
                 changeImage(game.NumberOfWrongs);
             }
-
-            openResultPage();
+            else
+            {
+                openResultPage();
+            }
         }
 
         private void changeImage(int numberOfWrongs)
