@@ -112,10 +112,13 @@ namespace HangMan
 
             Random rand = new Random();
 
-            SecretWord = words[rand.Next(0, words.Length - 1)].ToUpper();
+            while (true)
+            {
+                SecretWord = words[rand.Next(0, words.Length - 1)].ToUpper();
 
-            if (!IsCorrectWord())
-                SetWordFromFile(wordListFileName);
+                if (IsCorrectWord())
+                    break;
+            }
 
         }
 
