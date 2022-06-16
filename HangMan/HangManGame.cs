@@ -105,6 +105,11 @@ namespace HangMan
 
             words = File.ReadAllLines(wordListFileName);
 
+            if(words.Length == 0)
+            {
+                SetWordFromReserve();
+            }
+
             Random rand = new Random();
 
             SecretWord = words[rand.Next(0, words.Length - 1)].ToUpper();
